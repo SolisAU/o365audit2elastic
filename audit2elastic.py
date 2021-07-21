@@ -9,7 +9,7 @@ import sys, os, csv, json, re, dateutil.parser, pprint
 
 parser = ArgumentParser(prog='audit2elastic', description='Push Office 365 audit logs to ElasticSearch')
 
-parser.add_argument('--server', '-s', dest='elastic_server', action='store', default=os.environ.get('ES_HOSTS', 'http://10.80.121.230:9200'), help='ElasticSearch server(s)')
+parser.add_argument('--server', '-s', dest='elastic_server', action='store', default=os.environ.get('ES_HOSTS', 'http://10.80.121.231:9200'), help='ElasticSearch server(s)')
 parser.add_argument('--index',  '-i', dest='elastic_index',  action='store', default='o365-%s' % hex(abs(hash(json.dumps(sys.argv[1:]))))[2:10], help='ElasticSearch index name')
 parser.add_argument("paths", nargs=REMAINDER, help='Target audit log file(s)', metavar='paths')
 
